@@ -12,12 +12,13 @@ import java.util.concurrent.ConcurrentHashMap;
 public class UserRepository {
     private final Map<String, User> users = new ConcurrentHashMap<>();
 
-    public List<Authorities> getUserAuthorities(String user, String password) {
+    public List<Authorities> getUserAuthorities(User user) {
 ////        Добавление тестового пользователя
 //        users.put("testUser1", new User(
 //                "testUser1", "iddqd", List.of(Authorities.READ, Authorities.WRITE)));
-        if (users.containsKey(user) && users.get(user).getPassword().equals(password)) {
-            return users.get(user).getAuthorities();
+        final String name = user.getName();
+        if (users.containsKey(name) && users.get(name).getPassword().equals(user.getPassword())) {
+            return users.get(name).getAuthorities();
         }
         return null;
     }
