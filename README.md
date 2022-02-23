@@ -162,7 +162,7 @@ public class AuthorizationController {
 
 Для maven: `./mvnw clean package` (если пишет Permission denied тогда сначала выполните `chmod +x ./mvnw`)
 
-2. Теперь можно начинать писать `Dockerfile`. Базовым образом возьмите `openjdk:8-jdk-alpine` и не забудьте открыть докеру порт(`EXPOSE`), на котором работает ваше приложение
+2. Теперь можно начинать писать `Dockerfile`. Базовым образом возьмите `openjdk:8-jdk-alpine` (для Java 11 `adoptopenjdk/openjdk11:jre-11.0.13_8-alpine`) и не забудьте открыть докеру порт(`EXPOSE`), на котором работает ваше приложение
 
 3. Добавьте собранный jar в ваш образ(`ADD`). Если вы собирали с помощью maven, тогда jar будет лежать в папке `target`, а если gradle - в `build/libs`
 
